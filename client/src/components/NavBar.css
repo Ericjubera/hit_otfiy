@@ -1,0 +1,14 @@
+.navbar{
+    display:flex;
+    align-content: center;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: green;
+    height: 100%;
+    text-align: center;
+
+}
+.navbar h1 {
+align-self: center;
+}
