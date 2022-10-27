@@ -1,9 +1,10 @@
 import Pipe from "./Pipe"
-import "./pipeCards.css"
+import  "./Pipe.css";
 
 function PipeCards({pipes})
 { const cards=pipes.map((pipe)=>
-    <Pipe pipes={pipe}/>)
+    <Pipe key={pipe.id} pipes={pipe} />)
+    
 
     return(
 
@@ -11,6 +12,7 @@ function PipeCards({pipes})
 
 
 <div className="pipe-list">
+
 {cards}
 </div>
     </div>

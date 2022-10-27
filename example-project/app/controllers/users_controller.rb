@@ -5,13 +5,13 @@ class UsersController < ApplicationController
     end
 
     def show 
-        use=User.find(params[:id])
-         render json:use, serializer: UserPipesSerializer
+      user=User.find(params[:id])
+          render json: current_user #,include: :pipes #serializer: UserPipesSerializer
     end
 
     def create
-        use=User.create!(user_params)
-        render json:use, status: :created
+        user=User.create!(user_params)
+        render json:user, status: :created
     end 
 
     private

@@ -50,14 +50,15 @@ return(
             Username
         </label>
         <input type="text" name="name" value={name} onChange={handleChange} />
-        <label>
-            password
-        </label>
-        <input type="password" name="password" value={password} onChange={handleChange}></input>
+   
         <label>
             age
         </label>
         <input type="age" name="age" value={age} onChange={handleChange}></input>
+        <label>
+            password
+        </label>
+        <input type="password" name="password" value={password} onChange={handleChange}></input>
         <input type='submit' value='Sign up' />
     </Form>
     {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
