@@ -31,6 +31,7 @@ function NavBar({updateUser}){
             <li><Link to='/users/1'>User Page</Link></li>
             <li><Link to='/users/new'>Sign Up</Link></li>
             <li><Link to='/login'>Login</Link></li>
+            <li><Link to="/pipes">Pipes</Link></li>
            
         
            </ul>

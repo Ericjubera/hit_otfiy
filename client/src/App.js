@@ -11,7 +11,7 @@ import PipeDetails from "./components/PipeDetail";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [pipes,setPipes]= useState([]);
+  // const [pipes,setPipes]= useState([]);
   const [errors, setErrors] = useState(false)
   const [currentUser,setCurrentUser]=useState(false)
 
@@ -20,7 +20,11 @@ function App() {
   //     .then((r) => r.json())
   //     .then((data) => setCount(data.count));
   // }, []);
-  
+  // useEffect(() => {
+  //   fetch("/pipes")
+  //     .then(r => r.json())
+  //     .then(data => setPipes(data));
+  // }, []);
 
   useEffect(()=>{
     fetch("/authorized_user")
@@ -32,7 +36,11 @@ function App() {
       }
     })
   },[])
-
+  
+  // function onDelete(id){
+  //   let newCard=pipes.filter((neww)=>neww.id !== id)
+  //   setPipes(newCard)
+  // }
 
   const updateUser = (user) => setCurrentUser(user)
   
@@ -43,25 +51,28 @@ function App() {
     <div class="uska" >
       
       <NavBar updateUser={updateUser}/>
-      {/* { ! currentUser ? <Login error={'please login'} updateUser={updateUser} />: */}
+      { ! currentUser ? <Login error={'please login'} updateUser={updateUser} />:
       <Switch>
 <Route exact path="/users/new">
-    <Home/>
+    <Home  />
     </Route>
+
+      <Route exact path="/pipes">
+    <PipeCards />
+      </Route>
     <Route exact path='/login'>
       <Login updateUser={updateUser} />
     </Route>
     <Route exact path='/users/:id'>
         <UserPage updateUser={updateUser} />
-        {/* <PipeDetails/> */}
-
+    
       </Route>
    
       </Switch>
-  {/* }  */}
-      <PipeCards pipes={pipes}/>
+    }  
+      {/* <PipeCards /> */}
     </div>
   );
-}
+ } 
 
 export default App;

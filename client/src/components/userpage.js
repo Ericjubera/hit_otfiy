@@ -2,12 +2,16 @@
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import PipeCards from './PipeCards'
+import Pipe from './Pipe'
+import NewPipe from './NewPipe'
 
 function UserPage(){
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
     const [errors, setErrors] = useState(false)
-    const [pipes,setPipes]=useState('')
+    // const [pipes,setPipes]=useState('')
+    // const cards=user.map((pipe)=>
+    // <Pipe  pipes={pipe} />)
 
     // useEffect(() => {
     //     fetch("/pipes")
@@ -45,15 +49,24 @@ function UserPage(){
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
     return (
-        <div>
+        <card>
             <h1>{user.name}'s</h1>
-            <h2>age {user.age} lets go</h2>
-            <h3>Your collection</h3>
-            {console.log(user.id)}
-      
+            <h3>Collection</h3>
+            
+            {user.pipes.map(pipes => (
+               
+                <li>
+                    <h2>{pipes.item_name}</h2>
+                    <p>color {pipes.color}</p>
+                    <img src={pipes.image}/>
+                </li>
+                ))}
+                <NewPipe></NewPipe>
+                {/* <PipeCards></PipeCards> */}
+               
+           {/* <img src={user.pipes[1].image}/> */}
            {/* <img src={user.pipes[0].image}/> */}
-           {/* <img>{user.pipes[0].image}</img> */}
-        </div>
+           </card>
         
     )
 }
